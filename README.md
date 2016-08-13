@@ -5,7 +5,7 @@ by Joan Alba Maldonado (joanalbamaldonadoNO_SPAM_PLEASE AT gmail DOT com, withou
 "Connect 4" and "Tic-Tac-Toe" and more alike games totally written in DHTML. Highly configurable.
 
 Version: 0.17a 
-Date: 12th September 2006 (approximately).
+- Date: 12th September 2006 (approximately).
 
 You can donate at http://sourceforge.net/donate/index.php?group_id=177497
 
