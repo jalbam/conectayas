@@ -1,18 +1,11 @@
-<?php
-    //Se configura el BBClone:
-    define("_BBC_PAGE_NAME", "english online");
-    define("_BBCLONE_DIR", "../bbclone/");
-    define("COUNTER", _BBCLONE_DIR."mark_page.php");
-    if (is_readable(COUNTER)) include_once(COUNTER);
-?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-        <title>Conectayas &copy; (by Joan Alba Maldonado)</title>
-        <!-- (c) Conectayas - Program by Joan Alba Maldonado (granvino@granvino.com). Prohibited to publish, reproduce or modify without maintain author's name. -->
+        <title>Conectayas &copy; (por Joan Alba Maldonado)</title>
+        <!-- (c) Conectayas - Programa realizado por Joan Alba Maldonado (granvino@granvino.com). Prohibido publicar, reproducir o modificar sin citar expresamente al autor original. -->
         <script language="JavaScript1.2" type="text/javascript">
             <!--
-                //(c) Conectayas - Program by Joan Alba Maldonado (granvino@granvino.com). Prohibited to publish, reproduce or modify without maintain author's name.
+                //(c) Conectayas - Programa realizado por Joan Alba Maldonado (granvino@granvino.com). Prohibido publicar, reproducir o modificar sin citar expresamente al autor original.
 
                 //Numero de jugadores:
                 var jugadores = 1;
@@ -204,9 +197,9 @@
                 function mostrar_ocultar_opciones()
                 {
                     //Si el menu esta visible, se oculta:
-                    if (document.getElementById("opciones").style.visibility == "visible") { document.getElementById("opciones").style.visibility = "hidden"; document.getElementById("opciones_sombra").style.visibility = "hidden"; document.getElementById("menu").title = "Open options"; if (jugador_actual == "usuario") { document.getElementById("zona_juego_invisible").style.visibility = "visible"; } }
+                    if (document.getElementById("opciones").style.visibility == "visible") { document.getElementById("opciones").style.visibility = "hidden"; document.getElementById("opciones_sombra").style.visibility = "hidden"; document.getElementById("menu").title = "Abrir opciones"; if (jugador_actual == "usuario") { document.getElementById("zona_juego_invisible").style.visibility = "visible"; } }
                     //...pero si esta oculto, se muestra:
-                    else { document.getElementById("opciones").style.visibility = "visible"; document.getElementById("opciones_sombra").style.visibility = "visible"; document.getElementById("menu").title = "Close options"; document.getElementById("zona_juego_invisible").style.visibility = "hidden"; }
+                    else { document.getElementById("opciones").style.visibility = "visible"; document.getElementById("opciones_sombra").style.visibility = "visible"; document.getElementById("menu").title = "Cerrar opciones"; document.getElementById("zona_juego_invisible").style.visibility = "hidden"; }
                 }
                 
 
@@ -252,7 +245,7 @@
                     if (errores != "")
                     {
                         //Se alerta de los errores:
-                        alert("Options can't be apply correcty, because:\n" + errores);
+                        alert("No se pueden aplicar las opciones porque:\n" + errores);
                         
                         //Restaura los valores del formulario de opciones:
                         if (!tablero_ancho_enviado) { document.getElementById("tablero_ancho").value = tablero_width; }
@@ -269,7 +262,7 @@
                     else
                     {
                         //Se pide confirmacion y si se acepta, se procede:
-                        if (confirm("Press ok to apply the options. Actual game will be lost."))
+                        if (confirm("Pulsa aceptar para aplicar las opciones. Se va a perder la partida actual."))
                         {
 
                             if (jugadores == 2 && jugadores_enviado == 1) { numero_usuario = 1; }
@@ -367,7 +360,7 @@
                 function iniciar_juego_primera_vez()
                 {
                     //Muestra el mensaje de cargando:
-                    mostrar_mensaje("Loading...");
+                    mostrar_mensaje("Cargando...");
                     
                     //Se aplican los valores iniciales a los campos del formulario:
                     document.getElementById("tablero_ancho").value = tablero_width;
@@ -395,11 +388,11 @@
                 function iniciar_juego()
                 {
                     //Muestra el mensaje de cargando:
-                    mostrar_mensaje("Loading...");
+                    mostrar_mensaje("Cargando...");
                     
                     //Se setea como jugador actual el primer jugador:
                     jugador_actual = primer_jugador;
-                    //if (jugadores == 1) { jugador_actual = "usuario"; }
+//                    if (jugadores == 1 && jugador_actual != "ordenador") { jugador_actual = "usuario"; }
                     
                     //Despues de unso milisegundos, crea el tablero, deja de mostrar el mensaje y pasa el turno al jugador actual:
                     setTimeout('crear_tablero(); mostrar_mensaje(""); tirar();', 10);
@@ -663,7 +656,7 @@
                     if (jugador_actual == "ordenador" && jugadores == 1)
                     {
                         //Muestra el mensaje de procesando:
-                        mostrar_mensaje("Processing...");
+                        mostrar_mensaje("Procesando...");
                         
                         //Oculta la pieza del jugador:
                         document.getElementById("pieza").style.visibility = "hidden";
@@ -879,12 +872,12 @@
                             document.getElementById("pieza").style.visibility = "hidden";
                             document.getElementById("pieza_sombra").style.visibility = "hidden";
                             //Da la enhorabuena:
-                            if (jugadores == 2) { mostrar_mensaje("Congratulations player "+numero_jugador); alert("Player "+numero_jugador+" won."); }
-                            else { mostrar_mensaje("You won"); alert("Congratulations! you won."); }
+                            if (jugadores == 2) { mostrar_mensaje("Felicidades jugador "+numero_jugador); alert("Ha ganado el jugador "+numero_jugador); }
+                            else { mostrar_mensaje("Has ganado"); alert("Enhorabuena! has ganado."); }
                             //Deja de mostrar el mensaje:
                             mostrar_mensaje("");
                         }
-                        else { mostrar_mensaje("You lost"); alert("You lost."); mostrar_mensaje(""); } //Si gana el ordenador, se notifica.
+                        else { mostrar_mensaje("Has perdido"); alert("Has perdido."); mostrar_mensaje(""); } //Si gana el ordenador, se notifica.
                         if (jugadores == 1) { primer_jugador = (primer_jugador == "usuario") ? "ordenador" : "usuario"; } //Alterna el primer jugador. 
                         else { jugador_actual = "usuario"; var color_usuario_backup = colores[color_usuario]; colores[color_usuario] = colores[color_ordenador]; colores[color_ordenador] = color_usuario_backup; document.getElementById("pieza").style.background = colores[color_usuario]; numero_usuario = (numero_usuario == 1) ? 2 : 1; }
                         //Selecciona la opcion indicada como primer jugador en el formulario:
@@ -901,12 +894,12 @@
                         for (x=0; x<tablero.length; x++) { if (tablero[x] == 0) { huecos_libres = true; } }
                         if (!huecos_libres)
                         {
-                            mostrar_mensaje("There is no winner");
+                            mostrar_mensaje("No hay ganador");
                             if (jugadores == 1) { primer_jugador = (primer_jugador == "usuario") ? "ordenador" : "usuario"; }
                             else { jugador_actual = "usuario"; var color_usuario_backup = colores[color_usuario]; colores[color_usuario] = colores[color_ordenador]; colores[color_ordenador] = color_usuario_backup; document.getElementById("pieza").style.background = colores[color_usuario]; numero_usuario = (numero_usuario == 1) ? 2 : 1; }
                             var primer_jugador_seleccionado = (primer_jugador == "usuario") ? 0 : 1;
                             document.getElementById("primer_jugador").options[primer_jugador_seleccionado].selected = true;
-                            alert("Game has finished, there are not more free holes");
+                            alert("El juego ha terminado, ya no hay mas huecos libres");
                             iniciar_juego();
                             return true;
                         }
@@ -920,11 +913,11 @@
     </head>
     <body onLoad="iniciar_juego_primera_vez();" onMouseMove="arrastrar_pieza(event, true);" onMouseUp="campo_seleccionable = false; document.onmousemove=function(event) { arrastrar_opciones(event, false); }" bgcolor="#ddddef" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
         <!-- Menu: -->
-        <div id="menu" style="left:110px; top:10px; width:65px; height:20px; position:absolute; border:0px; padding:0px; background:transparent; color:#000000; text-align:center; line-height:20px; text-decoration:none; font-family:arial; font-size:12px; cursor:pointer; cursor:hand; -moz-user-select:none; z-index:2;" title="Open options" onMouseOver="this.style.fontWeight = 'bold';" onMouseOut="this.style.fontWeight = 'normal';" onClick="mostrar_ocultar_opciones();" onSelectStart="return false;">
-            Options
+        <div id="menu" style="left:110px; top:10px; width:65px; height:20px; position:absolute; border:0px; padding:0px; background:transparent; color:#000000; text-align:center; line-height:20px; text-decoration:none; font-family:arial; font-size:12px; cursor:pointer; cursor:hand; -moz-user-select:none; z-index:2;" title="Abrir opciones" onMouseOver="this.style.fontWeight = 'bold';" onMouseOut="this.style.fontWeight = 'normal';" onClick="mostrar_ocultar_opciones();" onSelectStart="return false;">
+            Opciones
         </div>
-        <div id="juego_nuevo" style="left:8px; top:10px; width:110px; height:20px; position:absolute; border:0px; padding:0px; background:transparent; color:#000000; text-align:center; line-height:20px; text-decoration:none; font-family:arial; font-size:12px; cursor:pointer; cursor:hand; -moz-user-select:none; z-index:2;" title="New game" onMouseOver="this.style.fontWeight = 'bold';" onMouseOut="this.style.fontWeight = 'normal';" onClick="if (se_ha_tirado && confirm('Press ok to start a new game. Actual game will be lost.')) { clearInterval(ficha_cayendo); ficha_cayendo = false; iniciar_juego(); }" onSelectStart="return false;">
-            New game
+        <div id="juego_nuevo" style="left:8px; top:10px; width:110px; height:20px; position:absolute; border:0px; padding:0px; background:transparent; color:#000000; text-align:center; line-height:20px; text-decoration:none; font-family:arial; font-size:12px; cursor:pointer; cursor:hand; -moz-user-select:none; z-index:2;" title="Juego nuevo" onMouseOver="this.style.fontWeight = 'bold';" onMouseOut="this.style.fontWeight = 'normal';" onClick="if (se_ha_tirado && confirm('Pulsa aceptar para iniciar un juego nuevo. Se perdera el actual.')) { clearInterval(ficha_cayendo); ficha_cayendo = false; iniciar_juego(); }" onSelectStart="return false;">
+            Nuevo juego
         </div>
         <!-- Fin de Menu. -->
         <!-- Zona de juego: -->
@@ -934,48 +927,48 @@
         <!-- Fin de Zona de juego. -->
         <!-- Menu de Opciones: -->
         <div id="opciones" style="left:40px; top:50px; width:340px; height:480px; visibility:hidden; position:absolute; border:0px; padding:0px; background:#efefdd; color:#333333; text-align:left; line-height:20px; text-decoration:none; font-family:verdana; font-size:10px; filter:alpha(opacity=70); opacity:0.7; -moz-opacity:0.7; -khtml-opacity:0.7; cursor:crosshair; z-index:5;" onMouseUp="campo_seleccionable = false; document.onmousemove=function(event) { arrastrar_opciones(event, false); }" onMouseDown="if (campo_seleccionable) { campo_seleccionable = false; document.onmousemove=function(event) { arrastrar_opciones(event, false); } } else { document.onmousemove=function(event) { arrastrar_opciones(event, true); } }">
-            <div style="left:312px; top:2px; position:absolute; cursor:pointer; cursor:hand; -moz-user-select:none;" title="Close options" onMouseOver="this.style.fontWeight = 'bold';" onMouseOut="this.style.fontWeight = 'normal';" onClick="mostrar_ocultar_opciones();" onSelectStart="return false;">[x]&nbsp;</div>
+            <div style="left:312px; top:2px; position:absolute; cursor:pointer; cursor:hand; -moz-user-select:none;" title="Cerrar opciones" onMouseOver="this.style.fontWeight = 'bold';" onMouseOut="this.style.fontWeight = 'normal';" onClick="mostrar_ocultar_opciones();" onSelectStart="return false;">[x]&nbsp;</div>
             <div style="left:20px; top:20px; position:absolute; cursor:crosshair;">
                 <form style="display:inline;" onSubmit="aplicar_opciones(); return false;" align="center">
                    <center>
                        <fieldset style="width:280px; cursor:crosshair;">
-                           <legend style="width:280px; color:#aa0000; font-size:20px; font-weight:bold; text-align:center; -moz-user-select:none;" onSelectStart="return false;" title="Options menu">Options</legend>
+                           <legend style="width:280px; color:#aa0000; font-size:20px; font-weight:bold; text-align:center; -moz-user-select:none;" onSelectStart="return false;" title="Men&uacute;n de opciones">Opciones</legend>
                            <br>
                            <center>
                                <select id="numero_jugadores" name="numero_jugadores" style="cursor:pointer; cursor:hand;" onChange="if (parseInt(this.value) == 2) { document.getElementById('primer_jugador').disabled = true; } else { document.getElementById('primer_jugador').disabled = false; }">
-                                   <option value="1">1 Player (user versus computer)</option>
-                                   <option value="2">2 Players (user versus user)</option>
+                                   <option value="1">1 Jugador (usuario contra ordenador)</option>
+                                   <option value="2">2 Jugadores (usuario contra usuario)</option>
                                </select>
                            </center>
                            <br>
-                           <label for="tablero_ancho" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="w" title="Board width (number of holes)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Board <u>w</u>idth:</b> <input type="text" name="tablero_ancho" id="tablero_ancho" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="4" maxlength="3" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="w"></label>
+                           <label for="tablero_ancho" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="t" title="Ancho del tablero (n&uacute;mero de huecos)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Ancho del <u>t</u>ablero:</b> <input type="text" name="tablero_ancho" id="tablero_ancho" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="4" maxlength="3" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="t"></label>
                            <br>
                            <br>
-                           <label for="tablero_alto" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="h" title="Board height (number of holes)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Board <u>h</u>eight:</b> <input type="text" name="tablero_alto" id="tablero_alto" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="4" maxlength="3" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="h"></label>
+                           <label for="tablero_alto" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="e" title="Alto del tablero (n&uacute;mero de huecos)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Alto d<u>e</u>l tablero:</b> <input type="text" name="tablero_alto" id="tablero_alto" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="4" maxlength="3" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="e"></label>
                            <br>
                            <br>
-                           <label for="fichas_necesarias" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="n" title="Necessary pieces to put in line to win"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; <u>N</u>ecessary pieces to win:</b> <input type="text" name="fichas_necesarias" id="fichas_necesarias" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="4" maxlength="3" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="n"></label>
+                           <label for="fichas_necesarias" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="n" title="Fichas que se necesitan poner en l&iacute;nea para ganar"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Fichas <u>n</u>ecesarias para ganar:</b> <input type="text" name="fichas_necesarias" id="fichas_necesarias" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="4" maxlength="3" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="n"></label>
                            <br>
                            <br>
-                           <label for="color_usuario" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="u" title="Color of user piece (RGB hexadecimal in HTML)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Color of <u>u</u>ser:</b> <input type="text" name="color_usuario" id="color_usuario" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="8" maxlength="7" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="u"></label>
+                           <label for="color_usuario" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="u" title="Color de la ficha del usuario (RGB hexadecimal en HTML)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Color <u>u</u>suario:</b> <input type="text" name="color_usuario" id="color_usuario" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="8" maxlength="7" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="u"></label>
                            <br>
                            <br>
-                           <label for="color_ordenador" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="o" title="Color of opponent piece (RGB hexadecimal in HTML)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Color of <u>o</u>pponent:</b> <input type="text" name="color_ordenador" id="color_ordenador" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="8" maxlength="7" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="o"></label>
+                           <label for="color_ordenador" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="c" title="Color de la ficha del oponente (RGB hexadecimal en HTML)"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; <u>C</u>olor oponente:</b> <input type="text" name="color_ordenador" id="color_ordenador" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" size="8" maxlength="7" style="height:22px; color:#0000aa; background:#ffffdd; font-family:courier; line-height:12px; font-size:12px; font-weight:bold;" accesskey="c"></label>
                            <br>
                            <br>
-                           <label for="gravedad" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="g" title="If gravity is active, pieces will fall"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; <input type="checkbox" name="gravedad" id="gravedad" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" accesskey="g" style="cursor:pointer; cursor:hand;"> Activated <u>g</u>ravity</b></label>
+                           <label for="gravedad" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="g" title="Si se activa la gravedad, las piezas caer&aacute;n"><b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; <input type="checkbox" name="gravedad" id="gravedad" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" accesskey="g" style="cursor:pointer; cursor:hand;"> Activar <u>g</u>ravedad</b></label>
                            <br>
                            <br>
-                           <label for="primer_jugador" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="i" title="Who start the game">
-                           <b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; F<u>i</u>rst player:</b>
+                           <label for="primer_jugador" style="line-height:12px; font-size:12px; cursor:pointer; cursor:hand;" accesskey="i" title="Qu&eacute; usuario tirar&aacute; primero">
+                           <b style="-moz-user-select:none;" onSelectStart="return false;">&nbsp; Pr<u>i</u>mer jugador:</b>
                            <select id="primer_jugador" name="primer_jugador" accesskey="i" onMouseDown="campo_seleccionable = true;" onMouseUp="campo_seleccionable = false;" style="cursor:pointer; cursor:hand;">
-                               <option value="usuario">user</option>
-                               <option value="ordenador">computer</option>
+                               <option value="usuario">usuario</option>
+                               <option value="ordenador">ordenador</option>
                            </select>
                            </label>
                            <br>
                            <br>
-                           <center><input type="submit" value="Aplicar" name="boton_aplicar" style="height:24px; color:#aa0000; font-weight:bold; text-align:center; line-height:12px; font-size:12px; font-family:arial; cursor:pointer; cursor:hand; -moz-user-select:none;" accesskey="a" onSelectStart="return false;" title="Apply options"></center>
+                           <center><input type="submit" value="Aplicar" name="boton_aplicar" style="height:24px; color:#aa0000; font-weight:bold; text-align:center; line-height:12px; font-size:12px; font-family:arial; cursor:pointer; cursor:hand; -moz-user-select:none;" accesskey="a" onSelectStart="return false;" title="Aplicar opciones"></center>
                            <br>
                        </fieldset>
                     </center>
@@ -990,15 +983,15 @@
         <!-- Fin de Pieza. -->
         <!-- Mensaje: -->
         <div id="mensaje" style="left:20px; top:30px; width:300px; height:40px; visibility:visible; position:absolute; border:0px; padding:0px; background:#ddefdd; color:#000000; text-align:center; line-height:40px; text-decoration:none; font-weight:bold; font-family:verdana; font-size:20px; filter:alpha(opacity=90); opacity:0.9; -moz-opacity:0.9; -khtml-opacity:0.9; z-index:10;">
-            Loading...
+            Cargando...
         </div>
         <!-- Fin de Mensaje. -->
         <!-- Informacion: -->
         <div id="informacion" style="left:10px; top:490px; height:0px; position:absolute; border:0px; padding:0px; background:transparent; color:#333333; text-align:left; line-height:20px; text-decoration:none; font-family:verdana; font-size:10px; z-index:3;">
-            &copy; <b>Conectayas</b> 0.17a by <i>Joan Alba Maldonado</i> (<a href="mailto:granvino@granvino.com">granvino@granvino.com</a>) &nbsp;<sup>(DHTML 100%)</sup>
-            <br>&nbsp;&nbsp;- Prohibited to publish, reproduce or modify without maintain author's name.
+            &copy; <b>Conectayas</b> 0.17a por <i>Joan Alba Maldonado</i> (<a href="mailto:granvino@granvino.com">granvino@granvino.com</a>) &nbsp;<sup>(100% DHTML)</sup>
+            <br>&nbsp;&nbsp;- Prohibido publicar, reproducir o modificar sin citar expresamente al autor original.
             <br>
-            &nbsp;&nbsp;<i>Dedicated to Yasmina Llaveria del Castillo</i>
+            &nbsp;&nbsp;<i>Dedicado a Yasmina Llaveria del Castillo</i>
         <!-- Fin de Informacion. -->
     </body>
 </html>
