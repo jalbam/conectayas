@@ -10,6 +10,9 @@ Version: 0.17a
 You can donate at http://sourceforge.net/donate/index.php?group_id=177497
 
 
+![ScreenShot](screenshot.gif)
+
+
 Description
 
 Open source tic-tac-toe, connect four (aka four in a row) and similar style games (highly configurable) totally written in DHTML (HTML, CSS and JavaScript).
