@@ -13,7 +13,7 @@ You can donate at http://sourceforge.net/donate/index.php?group_id=177497
 ![ScreenShot](screenshot.gif)
 
 
-Description
+## Description
 
 Open source tic-tac-toe, connect four (aka four in a row) and similar style games (highly configurable) totally written in DHTML (HTML, CSS and JavaScript).
 
@@ -31,5 +31,12 @@ You can find other modified and adapted versions of this game on the Internet, i
 
 This game has been tested under BeOS, Linux, NetBSD, OpenBSD, FreeBSD, Windows, Mac OS X, BlackBerry Tablet OS, Android, iOS and others.
 
+Play online in English: http://conectayas.tuxfamily.org/conectayas_english/
+
+Play online in English (mirror): http://www.dhtmlgames.com/conectayas/conectayas_english/
+
+Play online in Spanish: http://conectayas.tuxfamily.org/conectayas_spanish/
+
+Play online in Spanish (mirror): http://www.dhtmlgames.com/conectayas/conectayas_spanish/
 
 Official web site: http://conectayas.tuxfamily.org/ (mirror at http://www.dhtmlgames.com/conectayas/).
