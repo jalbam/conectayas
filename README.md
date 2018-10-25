@@ -27,7 +27,7 @@ This game only uses one image for the background which is not necessary to make 
 
 Official languages are Spanish and English.
 
-You can find other modified and adapted versions of this game on the Internet, including one Opera widget and even a Drupal module.
+You can find other modified and adapted versions of this game on the Internet, including one Opera widget and even a Drupal module found at https://www.drupal.org/project/connectiv
 
 This game has been tested under BeOS, Linux, NetBSD, OpenBSD, FreeBSD, Windows, Mac OS X, BlackBerry Tablet OS, Android, iOS and others.
 
