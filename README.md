@@ -1,6 +1,6 @@
 Conectayas 
 ========== 
-by Joan Alba Maldonado (joanalbamaldonadoNO_SPAM_PLEASE AT gmail DOT com, without NO_SPAM_PLEASE)
+by [Joan Alba Maldonado](https://joanalbamaldonado.com/) (joanalbamaldonadoNO_SPAM_PLEASE AT gmail DOT com, without NO_SPAM_PLEASE)
 
 "Connect 4" and "Tic-Tac-Toe" and more alike games totally written in DHTML. Highly configurable.
 
